@@ -25,7 +25,7 @@
 		main {
 			grid-column: 2/3;
 			grid-row: 1/4;
-			padding: 64px 8px 8px 8px;
+			padding: 64px 8px 8px 0px;
 		}
 	}
 	@media screen and (orientation: portrait) {
@@ -38,7 +38,7 @@
 
 	@media not (hover: none) {
 		main {
-			padding: 64px 8px 8px 8px;
+			padding: 64px 8px 8px 0px;
 		}
 
 		main::-webkit-scrollbar-button {

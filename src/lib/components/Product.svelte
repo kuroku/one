@@ -26,7 +26,6 @@
 	<section>
 		<p class="body-medium">{product.description}</p>
 	</section>
-	<hr />
 	<footer>
 		<hgroup>
 			<p class="title-large green">USD {product.price.toFixed(2)}</p>

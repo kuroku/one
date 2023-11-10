@@ -15,12 +15,16 @@
 	import { writable } from 'svelte/store';
 	import { scale, slide } from 'svelte/transition';
 	export let icon: string;
+	function closeFabText() {
+		$fabText = null;
+	}
 </script>
 
 <button
 	class="fab"
 	class:rounded={!!$fabText}
 	on:click
+	on:click={closeFabText}
 	in:scale={{ duration: 180, easing: cubicOut, delay: 180, start: 0.9 }}
 	out:scale={{ duration: 180, easing: cubicIn, start: 0.9 }}
 >
@@ -51,12 +55,14 @@
 		gap: 12px;
 		padding: 16px 16px 16px 16px;
 		transition: 360ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		transition-property: padding, border-radius;
 	}
 
 	.rounded {
 		border-radius: 50px;
 		padding: 16px 20px 16px 16px;
 		transition: 180ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition-property: padding, border-radius;
 	}
 
 	p {
