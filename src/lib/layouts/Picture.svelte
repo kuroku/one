@@ -4,7 +4,7 @@
 </script>
 
 <picture>
-	<img {src} {alt} />
+	<img {src} {alt} loading="lazy" />
 </picture>
 
 <style>
