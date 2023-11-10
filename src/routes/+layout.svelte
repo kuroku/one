@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ShoppingCart from '$lib/components/ShoppingCart.svelte';
 	import Nav, { type NavItem } from '$lib/layouts/Nav.svelte';
 	import OneUi from '$lib/layouts/OneUi.svelte';
 	const nav: NavItem[] = [
@@ -23,4 +24,5 @@
 <OneUi>
 	<slot />
 	<Nav {nav} />
+	<ShoppingCart />
 </OneUi>

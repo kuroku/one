@@ -24,7 +24,7 @@
 	@media screen and (orientation: landscape) {
 		main {
 			grid-column: 2/3;
-			grid-row: 1/3;
+			grid-row: 1/4;
 			padding: 64px 8px 8px 8px;
 		}
 	}

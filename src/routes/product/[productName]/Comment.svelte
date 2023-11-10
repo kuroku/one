@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { CommentType } from '$lib/interface/comment';
 	import Avatar from '$lib/layouts/Avatar.svelte';
+	import Icon from '$lib/layouts/Icon.svelte';
 	import moment from 'moment';
 	export let comment: CommentType;
 </script>
@@ -12,6 +13,9 @@
 			<p class="title-medium capitalize">{comment.user.name} {comment.user.lastname}</p>
 			<p class="body-small">{moment(comment.created_at).format('HH:MM (DD/MM/YYYY)')}</p>
 		</hgroup>
+		<menu>
+			<Icon icon="add_comment" />
+		</menu>
 	</header>
 	<p class="body-medium">{comment.comment}</p>
 </div>
@@ -31,5 +35,9 @@
 	}
 	header .capitalize {
 		text-transform: capitalize;
+	}
+	header menu {
+		margin-left: auto;
+		padding-right: 8px;
 	}
 </style>

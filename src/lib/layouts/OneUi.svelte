@@ -23,7 +23,7 @@
 	@media screen and (orientation: landscape) {
 		#one-ui {
 			grid-template-columns: 80px 1fr;
-			grid-template-rows: 64px 1fr;
+			grid-template-rows: 64px 80px 1fr;
 		}
 	}
 	@media screen and (orientation: portrait) {

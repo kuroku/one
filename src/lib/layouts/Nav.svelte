@@ -59,7 +59,7 @@
 			gap: 20px;
 			overflow: auto;
 			grid-column: 1/2;
-			grid-row: 2/3;
+			grid-row: 3/4;
 		}
 	}
 
