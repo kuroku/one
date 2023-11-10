@@ -1,16 +1,21 @@
 <script lang="ts">
-	import type { BrandType } from '$lib/interface/brand.ts';
 	import type { ProductType } from '$lib/interface/product.ts';
 	import Avatar from '$lib/layouts/Avatar.svelte';
 	import Button from '$lib/layouts/Button.svelte';
+	import ProductVariants from './ProductVariants.svelte';
+	export let product: ProductType;
+	let showDialogVariant = false;
 
-	export let product: ProductType & { brand: BrandType };
+	function openDialogVariant(e: any) {
+		e.preventDefault();
+		showDialogVariant = true;
+	}
 </script>
 
 <a class="product" href="/product/{product.name}">
 	<header>
-		<h2 class="title-medium">{product.name}</h2>
 		<Avatar src={product.brand.image} alt={product.brand.name} />
+		<h2 class="title-medium">{product.name}</h2>
 	</header>
 	<figure>
 		{#each product.images.slice(0, 3) as image}
@@ -26,9 +31,10 @@
 			<p class="title-large green">USD {product.price.toFixed(2)}</p>
 			<p class="body-small">4 Dias y 5 noches</p>
 		</hgroup>
-		<Button icon="add_shopping_cart">Agregar</Button>
+		<Button icon="add_shopping_cart" on:click={openDialogVariant}>Agregar</Button>
 	</footer>
 </a>
+<ProductVariants {product} bind:open={showDialogVariant} />
 
 <style>
 	.product {

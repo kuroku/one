@@ -1,12 +1,14 @@
 :root {
 	--primary-color: #212121;
 	--primary-on-color: rgba(255, 255, 255, 0.87);
-	--surface-color: #fafafa;
+	--surface-color: #fff;
 	--surface-100-color: #ececec;
 	--background-color: #eee;
 
 	--green-color: #5D9A63;
 
-	--text-color: rgba(0, 0, 0, 0.8);
+	--text-color: rgba(0, 0, 0, 0.9);
 	--border-color: rgba(0,0,0,.1);
+
+	--disabled-color: rgba(0, 0, 0, 0.38);
 }

@@ -7,9 +7,14 @@
 	import type { PageData } from './$types';
 	import Section from './Section.svelte';
 	import Pictures from './Pictures.svelte';
+	import ProductVariants from '$lib/components/ProductVariants.svelte';
 	export let data: PageData;
+	let showDialog = false;
 	function back() {
 		goto('/');
+	}
+	function onOpenDialog() {
+		showDialog = true;
 	}
 </script>
 
@@ -20,13 +25,15 @@
 <Navigate icon="arrow_back" on:click={back} />
 
 <Header title="USD {data.product.price.toFixed(2)}" caption="4 Dias y 5 noches" titleColor="green">
-	<Button icon="add_shopping_cart">Agregar</Button>
+	<Button icon="add_shopping_cart" on:click={onOpenDialog}>Agregar</Button>
 </Header>
 
 <Main id="product">
 	<Pictures imagenes={data.product.images} productName={data.product.name} />
 	<Section product={data.product} ratings={data.ratings} />
 </Main>
+
+<ProductVariants product={data.product} bind:open={showDialog} position="top-right" />
 
 <style>
 	:global(#product) {
