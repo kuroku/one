@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ProductType } from '$lib/interface/product';
 	import Button from '$lib/layouts/Button.svelte';
+	import { fabDialog } from '$lib/layouts/Fab.svelte';
 	import { shoppingCart } from '$lib/store/shopping-cart';
 	import { cubicIn, cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
@@ -17,8 +18,9 @@
 		return y;
 	}
 
-	function onClose() {
+	function close() {
 		open = false;
+		sizeSelected = null;
 	}
 
 	function addToCart() {
@@ -31,8 +33,8 @@
 				id: product.id
 			}
 		];
-		onClose();
-		sizeSelected = null;
+		close();
+		setTimeout(() => fabDialog('Agregado al carrito'), 180);
 	}
 </script>
 
@@ -71,7 +73,7 @@
 	</dialog>
 	<button
 		class="backdrop"
-		on:click={onClose}
+		on:click={close}
 		in:fade={{ duration: 180, easing: cubicOut }}
 		out:fade={{ duration: 180, easing: cubicIn }}
 	/>
