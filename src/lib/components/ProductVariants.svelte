@@ -28,7 +28,7 @@
 		in:fly={{ duration: 180, easing: cubicOut, y: getFlyY() }}
 		out:fly={{ duration: 180, easing: cubicIn, y: getFlyY() }}
 	>
-		<img src={product.images[0]} alt={product.name} />
+		<img src={product.images[0]} alt={product.name} loading="lazy" />
 		<section>
 			<p class="title-medium">Seleccione las preferencias de su articulo</p>
 			<div id="sizes">
