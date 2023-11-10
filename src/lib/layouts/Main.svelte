@@ -17,26 +17,32 @@
 	main {
 		width: 100%;
 		height: 100%;
-		padding: 0px 8px 8px 8px;
 		overflow-y: scroll;
+		/* background-color: red; */
 	}
 
 	@media screen and (orientation: landscape) {
 		main {
 			grid-column: 2/3;
-			grid-row: 2/3;
+			grid-row: 1/3;
+			padding: 64px 8px 8px 8px;
 		}
 	}
 	@media screen and (orientation: portrait) {
 		main {
 			grid-column: 1/3;
-			grid-row: 2/3;
+			grid-row: 1/4;
+			padding: 64px 8px 80px 8px;
 		}
 	}
 
 	@media not (hover: none) {
 		main {
-			padding: 0px 0px 8px 8px;
+			padding: 64px 8px 8px 8px;
+		}
+
+		main::-webkit-scrollbar-button {
+			height: 32px;
 		}
 	}
 </style>

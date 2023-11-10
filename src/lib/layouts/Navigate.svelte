@@ -21,6 +21,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		z-index: 1;
+		background-color: var(--background-color);
 	}
 	@media screen and (orientation: portrait) {
 		#navigate {

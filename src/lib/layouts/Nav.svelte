@@ -26,6 +26,7 @@
 		display: flex;
 		background-color: var(--background-color);
 		transition: bottom 180ms ease-out;
+		z-index: 2;
 	}
 	a {
 		width: 100%;

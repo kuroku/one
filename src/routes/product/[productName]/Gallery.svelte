@@ -1,11 +1,13 @@
 <script lang="ts">
+	import Picture from '$lib/layouts/Picture.svelte';
+
 	export let imagenes: string[];
 	export let productName: string;
 </script>
 
 <figure>
 	{#each imagenes as imagen}
-		<img src={imagen} alt={productName} />
+		<Picture src={imagen} alt={productName} />
 	{/each}
 </figure>
 
@@ -20,7 +22,7 @@
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(2, auto);
 	}
-	img {
+	figure :global(picture) {
 		width: 100%;
 		height: 100%;
 		border-radius: 16px;
@@ -32,16 +34,16 @@
 		figure {
 			overflow: hidden;
 		}
-		img:nth-child(1) {
+		figure :global(picture:nth-child(1)) {
 			grid-column: 1/3;
 			grid-row: 1/3;
 		}
 	}
 	@media screen and (orientation: portrait) {
-		img {
+		figure :global(picture) {
 			aspect-ratio: 1/1;
 		}
-		img:nth-child(1) {
+		figure :global(picture:nth-child(1)) {
 			grid-column: 1/5;
 			aspect-ratio: 16/12;
 		}

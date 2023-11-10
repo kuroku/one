@@ -21,7 +21,7 @@
 	<div class="content" id="rate">
 		<span class="label-large">Calificacion</span>
 		{#each ratings as { name }}
-			<Progress {name} porcentage={100} caption="5.0" />
+			<Progress {name} porcentage={80} caption="4.0" />
 		{/each}
 	</div>
 	<hr />

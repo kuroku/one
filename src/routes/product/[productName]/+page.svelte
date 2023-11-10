@@ -6,7 +6,7 @@
 	import Navigate from '$lib/layouts/Navigate.svelte';
 	import type { PageData } from './$types';
 	import Section from './Section.svelte';
-	import Pictures from './Pictures.svelte';
+	import Gallery from './Gallery.svelte';
 	import ProductVariants from '$lib/components/ProductVariants.svelte';
 	export let data: PageData;
 	let showDialog = false;
@@ -29,7 +29,7 @@
 </Header>
 
 <Main id="product">
-	<Pictures imagenes={data.product.images} productName={data.product.name} />
+	<Gallery imagenes={data.product.images} productName={data.product.name} />
 	<Section product={data.product} ratings={data.ratings} />
 </Main>
 

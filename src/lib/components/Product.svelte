@@ -2,13 +2,14 @@
 	import type { ProductType } from '$lib/interface/product.ts';
 	import Avatar from '$lib/layouts/Avatar.svelte';
 	import Button from '$lib/layouts/Button.svelte';
+	import Picture from '$lib/layouts/Picture.svelte';
 	import ProductVariants from './ProductVariants.svelte';
-	export let product: ProductType;
-	let showDialogVariant = false;
+	export let product: Omit<ProductType, 'comments'>;
+	let showVariant = false;
 
 	function openDialogVariant(e: any) {
 		e.preventDefault();
-		showDialogVariant = true;
+		showVariant = true;
 	}
 </script>
 
@@ -19,7 +20,7 @@
 	</header>
 	<figure>
 		{#each product.images.slice(0, 3) as image}
-			<img src={image} alt={product.name} />
+			<Picture src={image} alt={product.name} />
 		{/each}
 	</figure>
 	<section>
@@ -34,7 +35,7 @@
 		<Button icon="add_shopping_cart" on:click={openDialogVariant}>Agregar</Button>
 	</footer>
 </a>
-<ProductVariants {product} bind:open={showDialogVariant} />
+<ProductVariants {product} bind:open={showVariant} />
 
 <style>
 	.product {
@@ -68,14 +69,11 @@
 		gap: 8px;
 	}
 
-	img {
+	.product :global(picture) {
 		width: 100%;
-		border-radius: 16px;
 		aspect-ratio: 3/4;
-		object-fit: cover;
-		object-position: top;
 	}
-	img:first-child {
+	.product :global(picture:first-child) {
 		grid-column: 1/3;
 		grid-row: 1/3;
 		height: 100%;

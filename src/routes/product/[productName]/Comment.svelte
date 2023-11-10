@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { CommentType } from '$lib/interface/comment';
-	import type { UserType } from '$lib/interface/user';
 	import Avatar from '$lib/layouts/Avatar.svelte';
 	import moment from 'moment';
-	export let comment: CommentType & { user: UserType };
+	export let comment: CommentType;
 </script>
 
 <div class="comment">
