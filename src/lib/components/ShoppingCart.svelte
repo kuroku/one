@@ -8,8 +8,9 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 
-	const deliveryCost = 1;
+	$: emptyCart = $shoppingCart.length === 0;
 	$: subtotalPrice = $shoppingCart.reduce((acc, product) => acc + product.price, 0);
+	$: deliveryCost = emptyCart ? 0 : 1;
 	$: totalPrice = subtotalPrice + deliveryCost;
 
 	let open = false;
@@ -66,7 +67,7 @@
 		<li class="title-medium">Delivery <b class="green">{deliveryCost.toFixed(2)} USD</b></li>
 		<li class="title-medium">Total <b class="green">{totalPrice.toFixed(2)} USD</b></li>
 	</ul>
-	<Button icon="payment">Pagar</Button>
+	<Button icon="payment" disabled={emptyCart}>Pagar</Button>
 </Aside>
 
 <style>

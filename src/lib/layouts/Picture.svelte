@@ -9,6 +9,8 @@
 
 <style>
 	picture {
+		width: 100%;
+		height: 100%;
 		display: block;
 		overflow: hidden;
 		background-color: var(--background-100-color);
