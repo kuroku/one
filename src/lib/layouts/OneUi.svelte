@@ -1,4 +1,20 @@
+<script lang="ts">
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import Progresslinear from './Progresslinear.svelte';
+
+	let isLoading: boolean = false;
+
+	afterNavigate(() => {
+		isLoading = false;
+	});
+
+	beforeNavigate(() => {
+		isLoading = true;
+	});
+</script>
+
 <div id="one-ui">
+	<Progresslinear show={isLoading} />
 	<slot />
 </div>
 <svelte:head>
