@@ -27,6 +27,10 @@
 			$shoppingCart = $shoppingCart.filter((_, index) => index !== productIndex);
 		};
 	}
+
+	function removeAllToCart() {
+		$shoppingCart = [];
+	}
 </script>
 
 {#if !open}
@@ -38,7 +42,7 @@
 		<h6 class="title-large">Carrito</h6>
 		<menu>
 			<Icon icon="share" />
-			<Icon icon="clear_all" />
+			<Icon icon="clear_all" on:click={removeAllToCart} />
 		</menu>
 	</header>
 	<section>
