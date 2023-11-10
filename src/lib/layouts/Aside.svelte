@@ -35,7 +35,6 @@
 		top: 0px;
 		z-index: 4;
 		background: var(--background-color);
-		box-shadow: var(--elevation-4);
 	}
 	.right {
 		right: 0px;

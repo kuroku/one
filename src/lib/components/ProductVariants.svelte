@@ -1,11 +1,13 @@
 <script lang="ts">
 	import type { ProductType } from '$lib/interface/product';
 	import Button from '$lib/layouts/Button.svelte';
+	import { shoppingCart } from '$lib/store/shopping-cart';
 	import { cubicIn, cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
 	export let product: Omit<ProductType, 'comments'>;
 	export let open = false;
 	export let position: 'top-right' | 'center' = 'center';
+	let sizeSelected: string | null;
 
 	function getFlyY() {
 		const y = {
@@ -17,6 +19,20 @@
 
 	function onClose() {
 		open = false;
+	}
+
+	function addToCart() {
+		$shoppingCart = [
+			...$shoppingCart,
+			{
+				name: product.name,
+				price: product.price,
+				image: product.images[0],
+				id: product.id
+			}
+		];
+		onClose();
+		sizeSelected = null;
 	}
 </script>
 
@@ -34,16 +50,22 @@
 			<div id="sizes">
 				<p class="label-large">Talla</p>
 				{#each product.category.sizes as { name }}
-					<button class="label-large">{name}</button>
+					<button
+						class="label-large"
+						class:selected={sizeSelected === name}
+						on:click={() => (sizeSelected = name)}>{name}</button
+					>
 				{/each}
 			</div>
 			<hr />
 			<footer>
 				<hgroup>
 					<p class="title-large green">USD {product.price.toFixed(2)}</p>
-					<p class="body-small">3 dia y 4 noches</p>
+					<p class="body-small">Sin comision</p>
 				</hgroup>
-				<Button disabled>Agregar</Button>
+				<Button on:click={addToCart} disabled={!sizeSelected} icon="add_shopping_cart"
+					>Agregar</Button
+				>
 			</footer>
 		</section>
 	</dialog>
@@ -97,9 +119,10 @@
 	#sizes button {
 		width: 36px;
 		height: 36px;
-		border: 1px solid var(--primary-color);
+		border: 2px solid var(--primary-color);
 		background: none;
 		border-radius: 50%;
+		transition: 180ms ease;
 	}
 	footer {
 		display: flex;
@@ -108,6 +131,11 @@
 	}
 	.green {
 		color: var(--green-color);
+	}
+
+	#sizes button.selected {
+		background: var(--primary-color);
+		color: var(--primary-on-color);
 	}
 	@media screen and (orientation: landscape) {
 		#product-variant {

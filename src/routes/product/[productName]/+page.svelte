@@ -24,7 +24,7 @@
 
 <Navigate icon="arrow_back" on:click={back} />
 
-<Header title="USD {data.product.price.toFixed(2)}" caption="4 Dias y 5 noches" titleColor="green">
+<Header title="USD {data.product.price.toFixed(2)}" caption="Sin comision" titleColor="green">
 	<Button icon="add_shopping_cart" on:click={onOpenDialog}>Agregar</Button>
 </Header>
 

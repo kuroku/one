@@ -30,7 +30,7 @@
 	<footer>
 		<hgroup>
 			<p class="title-large green">USD {product.price.toFixed(2)}</p>
-			<p class="body-small">4 Dias y 5 noches</p>
+			<p class="body-small">Sin comision</p>
 		</hgroup>
 		<Button icon="add_shopping_cart" on:click={openDialogVariant}>Agregar</Button>
 	</footer>
