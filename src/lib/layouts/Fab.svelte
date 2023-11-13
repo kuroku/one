@@ -92,7 +92,6 @@
 			position: fixed;
 			bottom: 88px;
 			right: 16px;
-			box-shadow: var(--elevation-4);
 		}
 	}
 </style>

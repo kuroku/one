@@ -157,8 +157,8 @@
 
 	@media screen and (orientation: portrait) {
 		#product-variant {
-			width: 262px;
-			height: 448px;
+			width: 292px;
+			height: 520px;
 			align-content: flex-end;
 		}
 	}

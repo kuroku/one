@@ -5,15 +5,15 @@
 	import Icon from '$lib/layouts/Icon.svelte';
 	import Picture from '$lib/layouts/Picture.svelte';
 	import { shoppingCart } from '$lib/store/shopping-cart';
-	import { cubicOut } from 'svelte/easing';
-	import { fly } from 'svelte/transition';
+	import { cubicIn, cubicOut } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
 
 	$: emptyCart = $shoppingCart.length === 0;
 	$: subtotalPrice = $shoppingCart.reduce((acc, product) => acc + product.price, 0);
 	$: deliveryCost = emptyCart ? 0 : 1;
 	$: totalPrice = subtotalPrice + deliveryCost;
 
-	let open = false;
+	let open = true;
 
 	function onOpen() {
 		open = true;
@@ -41,10 +41,12 @@
 	<header>
 		<Icon icon="close" on:click={onClose} />
 		<h6 class="title-large">Carrito</h6>
-		<menu>
-			<Icon icon="share" />
-			<Icon icon="clear_all" on:click={removeAllToCart} />
-		</menu>
+		{#if $shoppingCart.length !== 0}
+			<menu out:fade={{ duration: 180, easing: cubicIn }}>
+				<Icon icon="share" />
+				<Icon icon="clear_all" on:click={removeAllToCart} />
+			</menu>
+		{/if}
 	</header>
 	<section>
 		{#each $shoppingCart as { name, price, image }, productIndex}
@@ -58,6 +60,11 @@
 					<Icon icon="close" on:click={removeToCart(productIndex)} />
 				</menu>
 			</article>
+		{:else}
+			<div class="empty" in:fade={{ duration: 180, easing: cubicOut, delay: 180 }}>
+				<span class="material-symbols-outlined icon">shopping_cart</span>
+				<p class="label-large">No hay productos en el carrito</p>
+			</div>
 		{/each}
 	</section>
 	<ul>
@@ -96,6 +103,25 @@
 		display: grid;
 		align-content: flex-start;
 		gap: 16px;
+		position: relative;
+	}
+
+	.empty {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		gap: 4px;
+	}
+	.empty .icon,
+	.empty p {
+		color: var(--text-low-color);
+	}
+	.empty .icon {
+		font-size: 48px;
 	}
 	ul {
 		display: grid;
