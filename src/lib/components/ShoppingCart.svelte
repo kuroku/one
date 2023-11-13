@@ -13,7 +13,7 @@
 	$: deliveryCost = emptyCart ? 0 : 1;
 	$: totalPrice = subtotalPrice + deliveryCost;
 
-	let open = true;
+	let open = false;
 
 	function onOpen() {
 		open = true;
