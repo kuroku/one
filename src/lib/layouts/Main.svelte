@@ -17,7 +17,7 @@
 	main {
 		width: 100%;
 		height: 100%;
-		overflow-y: scroll;
+		overflow-y: auto;
 		/* background-color: red; */
 	}
 
@@ -25,24 +25,14 @@
 		main {
 			grid-column: 2/3;
 			grid-row: 1/4;
-			padding: 64px 8px 8px 0px;
+			padding: var(--padding, 64px 8px 8px 8px);
 		}
 	}
 	@media screen and (orientation: portrait) {
 		main {
 			grid-column: 1/3;
 			grid-row: 1/4;
-			padding: 64px 8px 80px 8px;
-		}
-	}
-
-	@media not (hover: none) {
-		main {
-			padding: 64px 8px 8px 0px;
-		}
-
-		main::-webkit-scrollbar-button {
-			height: 32px;
+			padding: var(--padding, 64px 8px 8px 8px);
 		}
 	}
 </style>

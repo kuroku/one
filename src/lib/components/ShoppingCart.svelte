@@ -74,7 +74,7 @@
 		<li class="title-medium">Delivery <b class="green">{deliveryCost.toFixed(2)} USD</b></li>
 		<li class="title-medium">Total <b class="green">{totalPrice.toFixed(2)} USD</b></li>
 	</ul>
-	<Button icon="payment" disabled={emptyCart}>Pagar</Button>
+	<Button icon="shopping_bag" disabled={emptyCart}>Pedir</Button>
 </Aside>
 
 <style>

@@ -4,6 +4,21 @@
 	line-height: 64px;
 }
 
+.display-medium {
+	font-size: 45px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 52px;
+}
+
+.display-small {
+	font-family: Roboto;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 44px; /* 122.222% */
+}
+
 .headline-large {
 	font-size: 32px;
 	font-weight: 400;
@@ -50,6 +65,14 @@
 	letter-spacing: 0.5px;
 }
 
+.body-large {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
+	letter-spacing: 0.5px;
+}
+
 .body-medium {
 	font-size: 14px;
 	line-height: 20px;
@@ -60,4 +83,93 @@
 	font-size: 12px;
 	line-height: 16px;
 	letter-spacing: 0.4px;
+}
+
+@media screen and (max-width: 640px) {
+	.mobile_display-large {
+		font-size: 57px;
+		font-weight: 400;
+		line-height: 64px;
+	}
+	
+	.mobile_display-medium {
+		font-size: 45px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 52px;
+	}
+	
+	.mobile_display-small {
+		font-family: Roboto;
+		font-size: 36px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 44px; /* 122.222% */
+	}
+	
+	.mobile_headline-large {
+		font-size: 32px;
+		font-weight: 400;
+		line-height: 40px;
+	}
+	.mobile_headline-medium {
+		font-size: 28px;
+		line-height: 36px;
+	}
+	.mobile_title-large {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 22px;
+		line-height: 28px;
+	}
+	
+	.mobile_title-medium {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0.15px;
+	}
+	
+	.mobile_title-small {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 20px;
+		letter-spacing: 0.1px;
+	}
+	
+	.mobile_label-large {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.1px;
+	}
+	
+	.mobile_label-medium {
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.5px;
+	}
+	
+	.mobile_body-large {
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 24px; /* 150% */
+		letter-spacing: 0.5px;
+	}
+	
+	.mobile_body-medium {
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.25px;
+	}
+	
+	.mobile_body-small {
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.4px;
+	}
 }
